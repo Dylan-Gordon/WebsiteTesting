@@ -95,55 +95,55 @@ function game() {
 }
 function keyPush(evt) {
 	switch(evt.keyCode) {
-        case 37:
+        case 65:	// first player left
             if(!player1Ready)
                 player1Ready=true;
 			if(x1v!=1){
 				x1v=-1;y1v=0;
 			}
 			break;
-        case 38:
+        case 87:	// first player up
             if(!player1Ready)
                 player1Ready=true;
 			if(y1v!=1){
 				x1v=0;y1v=-1;
 			}
 			break;
-        case 39:
+        case 68:	// first player right
 			if(x1v!=-1){
 				x1v=1;y1v=0;
             }
             if(!player1Ready)
                 player1Ready=true;
 			break;
-		case 40:
+		case 83:	// first player down
 			if(y1v!=-1){
 				x1v=0;y1v=1;
             }
             player1Ready=true;
 			break;
-		case 65:
+		case 37:	// second player left
 			if(x2v!=1){
 				x2v=-1;y2v=0;
             }
             if(!player2Ready)
                 player2Ready=true;
 			break;
-		case 83:
+		case 40:	//second player down
 			if(y2v!=-1){
 				x2v=0;y2v=1;
             }
             if(!player2Ready)
                 player2Ready=true;
 			break;
-		case 68:
+		case 39:	// second player right
 			if(x2v!=-1){
 				x2v=1;y2v=0;
             }
             if(!player2Ready)
                 player2Ready=true;
 			break;
-		case 87:
+		case 38:	// second player up
 			if(y2v!=1){
 				x2v=0;y2v=-1;
             }
