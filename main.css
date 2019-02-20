@@ -1,0 +1,31 @@
+body{
+    background: black;
+    text-align: center;
+    color: white;
+}
+
+form{
+    font-size: 30px;
+}
+
+input{
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#mainpage{
+    border: 2px dotted lime;
+}
+
+#createAccount{
+    color: red;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#create_account_section{
+    display: none;
+    color: lime;
+    background-color: aqua;
+}
