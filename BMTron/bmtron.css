@@ -1,0 +1,28 @@
+body{
+	background-color: rgb(42, 252, 137);
+	font-family: Verdana;
+    font-size: 18px;
+    text-align: center;
+}
+
+div{
+    display: inline-block;
+    position: relative;
+}
+
+.sideBanners{
+    max-width:20%;
+    max-height: 60%;
+    overflow: hidden;
+}
+
+#canvasDiv{
+    vertical-align: top;
+    width:50%;
+    position: relative;
+}
+
+img{
+    max-height: 100%;
+    max-width: 100%;
+}
