@@ -9,7 +9,7 @@ const WHITE = 255;
 
 // general settings
 const heartBeatFrequency = 1000/15;
-const resolution = 20;
+const resolution = 10;
 const sliderLength = 10;
 
 // Game variables
@@ -19,19 +19,21 @@ var sliderSegmentsPositions;
 
 window.onload=function()
 {
+   console.log("Setting up new game");
 	gameboard = document.getElementById("gameboard");
 
 	resetGameBoard();
 
 	overrideUpAndDownKeyEventListeners();
 	overrideSpacebarEventListener();
+   document.addEventListener("keydown",keyPush);
 
 }
 
-function keyPush(event)
+function keyPush(evt)
 {
-	console.log("keyPush event");
-	switch(event.keyCode)
+	console.log("keyPush evt");
+	switch(evt.keyCode)
 	{
 		case UPKEY:
 		{
@@ -57,10 +59,15 @@ function keyPush(event)
 
 function game()
 {
-	var segmentsDrawn = 0;
-	while(segmentsDrawn < sliderSize)
+   console.log("Playing game");
+   var segmentsDrawn = 0;
+   gameboardContext = gameboard.getContext("2d");
+	gameboardContext.fillStyle = "white";
+   console.log("Slider size: " + sliderLength);
+	while(segmentsDrawn < sliderLength)
 	{
-
+      console.log("Segments drawn: " + segmentsDrawn)
+      gameboardContext.fillRect(resolution, segmentsDrawn*resolution, resolution, resolution);
 
 		segmentsDrawn++;
 	}
@@ -68,6 +75,7 @@ function game()
 
 function overrideUpAndDownKeyEventListeners()
 {
+   console.log("Override arrow keys");
 	window.addEventListener("keydown", 
 		function(e)
 		{
@@ -83,11 +91,12 @@ function overrideUpAndDownKeyEventListeners()
 					break;
 				}
 			}
-		})
+		}, false)
 }
 
 function overrideSpacebarEventListener()
 {
+   console.log("Override space bar");
 	window.addEventListener("keydown", 
 		function(keyEvent)
 	{
@@ -102,13 +111,13 @@ function overrideSpacebarEventListener()
 				break;
 			}
 		}
-	});
+	}, false);
 }
 
 function resetGameBoard()
 {
 	gameboardContext = gameboard.getContext("2d");
-	gameboardContext.fillStyle = BLACK;
+	gameboardContext.fillStyle = "black";
 	gameboardContext.fillRect(0, 0, gameboard.width, gameboard.height);
 
 	var numberOfRows = gameboard.width / resolution;
